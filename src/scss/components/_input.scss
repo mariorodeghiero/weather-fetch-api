@@ -1,0 +1,10 @@
+.container-search {
+    input[type="search"] {
+        border: none;
+        background-color: $color-blue;
+        padding: 10px;
+        :focus {
+            outline: none;
+        }
+    }
+}

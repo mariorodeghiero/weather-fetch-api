@@ -1,11 +1,9 @@
 {
   "name": "webpack-boilerplate-mr",
   "version": "1.0.0",
-  "description":
-    "Repository created for study and creation of a boilerplate using webpack ^ 3.x.x",
+  "description": "Repository created for study and creation of a boilerplate using webpack ^ 3.x.x",
   "main": "app.js",
-  "homepage":
-    "https://github.com/mariorodeghiero/webpack-boilerplate/blob/master/README.md",
+  "homepage": "https://github.com/mariorodeghiero/webpack-boilerplate/blob/master/README.md",
   "bugs": {
     "url": "https://github.com/mariorodeghiero/webpack-boilerplate/issues"
   },
@@ -18,8 +16,18 @@
     "dev": "webpack --colors --progress",
     "prod": "NODE_ENV=production webpack"
   },
-  "keywords": ["webpack", "webpack 3", "boiler-plate", "es6", "babel", "sass"],
-  "tags": ["webpack", "boiler-plate"],
+  "keywords": [
+    "webpack",
+    "webpack 3",
+    "boiler-plate",
+    "es6",
+    "babel",
+    "sass"
+  ],
+  "tags": [
+    "webpack",
+    "boiler-plate"
+  ],
   "author": {
     "name": "Mário Antônio do A. Rodeghiero",
     "email": "mario.rodeghiero@gmail.com",

@@ -1,18 +1,14 @@
-h1,
-p {
-  color: $color-white;
-  padding: 10px;
+body,
+html {
+  width: 100%;
+  height: 100%;
 }
 
-body {
-  background-color: $bck-color;
+.main {
+  background: url("/src/img/back.jpg") no-repeat;
+  background-size: 100%;
+  width: 100%;
+  height: 100%;
   text-align: center;
-}
-
-.logo {
-  margin: 0 auto;
-  width: 400px;
-  height: 400px;
-  background: url('./img/logo.png') no-repeat;
-  padding-bottom: 30px;
+  position: absolute;
 }
