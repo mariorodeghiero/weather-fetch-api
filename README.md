@@ -1,4 +1,4 @@
-# Webpack 3.x.x boiler-plate
+# Weather App
 
 Repository created for study and creation app weather using fetch API.
 
