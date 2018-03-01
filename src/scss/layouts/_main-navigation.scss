@@ -1,0 +1,18 @@
+h1,
+p {
+  color: $color-white;
+  padding: 10px;
+}
+
+body {
+  background-color: $bck-color;
+  text-align: center;
+}
+
+.logo {
+  margin: 0 auto;
+  width: 400px;
+  height: 400px;
+  background: url('./img/logo.png') no-repeat;
+  padding-bottom: 30px;
+}
