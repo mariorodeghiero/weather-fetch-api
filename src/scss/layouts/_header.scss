@@ -1,8 +1,9 @@
 h1 {
-    color: $color-white;
-    padding: 50px;
-    line-height: 1.6em;
-    span {
-        color: $color-blue;
-    }
+  color: $color-white;
+  padding: 50px;
+  line-height: 1.6em;
+  span {
+    font-weight: 300;
+    color: $color-blue;
+  }
 }
