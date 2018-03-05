@@ -2,6 +2,8 @@
 
 Repository created for study and creation app weather using fetch API.
 
+![Example running](src/img/weather.gif)
+
 ### Prerequisites
 
 What things you need to install the software and how to install them
@@ -14,7 +16,7 @@ What things you need to install the software and how to install them
 Clone this repository
 
 ```
-git clone https://github.com/mariorodeghiero/
+git clone https://github.com/mariorodeghiero/weather-fetch-api
 ```
 
 Installing the dependencies from the NPM Package Manager
