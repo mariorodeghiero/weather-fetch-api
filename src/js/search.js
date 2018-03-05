@@ -67,45 +67,17 @@ function getMinute(time) {
 }
 
 function selectIcon(code) {
-  switch (code) {
-    case "01d":
-    case "01n":
-      return `wi wi-day-sunny`;
-      break;
-    case "02d":
-    case "02n":
-      return `wi wi-night-cloudy`;
-      break;
-    case "03d":
-    case "03n":
-      return `wi wi-cloud`;
-      break;
-    case "04d":
-    case "04n":
-      return `wi wi-cloudy`;
-      break;
-    case "09d":
-    case "09n":
-      return `wi wi-showers`;
-      break;
-    case "10d":
-    case "10n":
-      return `wi wi-rain`;
-      break;
-    case "11d":
-    case "11n":
-      return `wi wi-thunderstorm`;
-      break;
-    case "13d":
-    case "13n":
-      return `wi wi-snow-wind`;
-      break;
-    case "50d":
-    case "50n":
-      return `wi wi-fog`;
-      break;
-    default:
-      return `wi wi-day-sunny`;
-      break;
+  const N = code.replace(/\D/g, "");
+  const iconMap = {
+      "01": "wi wi-day-sunny",
+      "02": "wi wi-night-cloudy",
+      "03": "wi wi-cloud",
+      "04": "wi wi-cloudy",
+      "09": "wi wi-showers",
+      "10":  "wi wi-rain",
+      "11": "wi wi-thunderstorm",
+      "13": "wi wi-snow-wind",
+      "50":  "wi wi-fog",
   }
-}
+  return iconMap[N] ?  iconMap[N] : "wi wi-day-sunny";
+};
