@@ -1,6 +1,6 @@
 # Weather App
 
-Repository created for study and creation app weather using fetch API.
+Repository created for study and creation app weather using ES6 - fetch API + webpack.
 
 ![Example running](src/img/weather.gif)
 
