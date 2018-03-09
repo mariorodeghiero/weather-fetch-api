@@ -25,37 +25,49 @@
   border-radius: 5px;
   background-color: $bck-opacity;
   color: $color-white;
-  display: grid;
-  grid-template-columns: 270px 230px;
-  grid-row: 100px 100px;
-  grid-gap: 10px;
-  .icon-div {
-    .icon {
-      padding: 20px 10px;
-      font-size: 4.5rem;
+  .div-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: minmax(100px, 170px);
+    grid-gap: 10px;
+    .icon-div {
+      .icon {
+        padding: 10px 10px;
+        font-size: 4.3rem;
+      }
+      h2 {
+        padding-top: 30px;
+        font-size: 1.7rem;
+        float: right;
+      }
+      h3 {
+        margin-top: 35px;
+        font-size: 1.2rem;
+        text-align: right;
+      }
     }
-    h2 {
-      padding-top: 30px;
-      font-size: 1.7rem;
-      float: right;
-    }
-    h3 {
-      margin-top: 25px;
-      font-size: 1.2rem;
+    .details {
       text-align: right;
+      h2 {
+        font-weight: 400;
+        font-size: 1.7rem;
+        padding-right: 15px;
+        padding-top: 10px;
+        padding-bottom: 60px;
+      }
+      h3 {
+        padding-right: 15px;
+      }
     }
   }
-  .details {
-    text-align: right;
-    h2 {
-      font-weight: 400;
-      font-size: 1.7rem;
-      padding-right: 15px;
-      padding-top: 10px;
-      padding-bottom: 60px;
-    }
-    h3 {
-      padding-right: 15px;
+  .fore-cast {
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: minmax(100px, auto);
+    // grid-gap: 10px;
+    .box {
+      border-right: 1px solid rgb(195, 228, 228);
     }
   }
 }
