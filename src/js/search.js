@@ -108,7 +108,6 @@ function getWeatherWeek(city) {
         console.log("temp-min:" + fahrenheit(data.list[i].main.temp_min));
         console.log('------------------------------------');
       });
-
     });
 }
 
