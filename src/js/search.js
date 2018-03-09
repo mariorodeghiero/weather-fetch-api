@@ -1,5 +1,5 @@
+document.querySelector("#searchForm").addEventListener("submit", getWeatherDay);
 const appKey = "f33ab95e615dc5a7c3c725a9b8e4e80f";
-document.querySelector("#searchForm").addEventListener("submit", getWeatherDay, getWeatherWeek);
 
 function getWeatherDay(e) {
   const city = document.querySelector("#cityInput").value;
@@ -10,9 +10,7 @@ function getWeatherDay(e) {
     .then(data => {
       document.querySelector("#icon-div").innerHTML = `
         <i class="icon ${selectIcon(data.weather[0].icon)}"/>
-        <h2 class="active" href="#" id="fahrenheit">${Math.round(
-          (data.main.temp - 273.15) * 1.8 + 32
-        )}°F | ${Math.round(data.main.temp - 273.15)}°C</h2>
+        <h2 class="active" href="#" id="fahrenheit">${fahrenheit(data.main.temp)}°F | ${celsius(data.main.temp)}°C</h2>
         <br>
             <h3>
                 Wind: ${data.wind.speed} mph
@@ -30,6 +28,7 @@ function getWeatherDay(e) {
             <h3>${titleCase(data.weather[0].description)}</h3>
           </section>
           `;
+      getWeatherWeek(data.name);
       console.log(data);
     })
     .catch(err => console.log(err));
@@ -50,10 +49,6 @@ function clearInput() {
   document.getElementById("searchForm").reset();
 }
 
-function getMinute(time) {
-  let min = ("0" + time.getMinutes()).slice(-2);
-  return min;
-}
 
 function selectIcon(code) {
   const N = code.replace(/\D/g, "");
@@ -71,6 +66,9 @@ function selectIcon(code) {
   return iconMap[N] ? iconMap[N] : "wi wi-day-sunny";
 };
 
+/**
+ * function get hour and Date
+ */
 function getDateHour() {
   let now = new Date();
   let dayName = new Array(
@@ -85,18 +83,44 @@ function getDateHour() {
   return `${dayName[now.getDay()]} ${now.getHours()}:${getMinute(now)}`;
 }
 
+function getMinute(time) {
+  let min = ("0" + time.getMinutes()).slice(-2);
+  return min;
+}
+
 /**
- * function forecast weather week
+ * function get forecast weather week
  */
+function getWeatherWeek(city) {
+  const urlForeCast = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=${appKey}`;
+  const arrayForecast = [2, 10, 18, 26, 34];
 
-function getWeatherWeek(e, city) {
-
-  const url = `api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=${appKey}`;
-
-  fetch(url)
+  fetch(urlForeCast)
     .then(response => response.json())
     .then(data => {
-      console.log(data)
+      console.log(data);
+
+      arrayForecast.forEach(i => {
+        let date = data.list[i].dt_txt.slice(5, 10).split('-').reverse().join('/');
+        console.log('------------------------------------');
+        console.log("date:" + date);
+        console.log("temp-max:" + fahrenheit(data.list[i].main.temp_max));
+        console.log("temp-min:" + fahrenheit(data.list[i].main.temp_min));
+        console.log('------------------------------------');
+      });
+
     });
-  e.preventDefault();
+}
+
+/**
+ * convert temperature in kelvin
+ */
+function celsius(tempKelvin) {
+  const celsius = Math.round(tempKelvin - 273.15);
+  return celsius;
+}
+
+function fahrenheit(tempKelvin) {
+  const fahrenheit = Math.round((tempKelvin - 273.15) * 1.8 + 32);
+  return fahrenheit;
 }
