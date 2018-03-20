@@ -10,7 +10,9 @@ function getWeatherDay(e) {
     .then(data => {
       document.querySelector("#icon-div").innerHTML = `
         <i class="icon ${selectIcon(data.weather[0].icon)}"/>
-        <h2 class="active" href="#" id="fahrenheit">${fahrenheit(data.main.temp)}°F | ${celsius(data.main.temp)}°C</h2>
+        <h2 class="active" href="#" id="fahrenheit">${fahrenheit(
+          data.main.temp
+        )}°F | ${celsius(data.main.temp)}°C</h2>
         <br>
             <h3>
                 Wind: ${data.wind.speed} mph
@@ -39,7 +41,7 @@ function getWeatherDay(e) {
 function titleCase(str) {
   return str
     .split(" ")
-    .map(function (word) {
+    .map(function(word) {
       return word[0].toUpperCase() + word.substring(1);
     })
     .join(" ");
@@ -48,7 +50,6 @@ function titleCase(str) {
 function clearInput() {
   document.getElementById("searchForm").reset();
 }
-
 
 function selectIcon(code) {
   const N = code.replace(/\D/g, "");
@@ -61,10 +62,10 @@ function selectIcon(code) {
     "10": "wi wi-rain",
     "11": "wi wi-thunderstorm",
     "13": "wi wi-snow-wind",
-    "50": "wi wi-fog",
-  }
+    "50": "wi wi-fog"
+  };
   return iconMap[N] ? iconMap[N] : "wi wi-day-sunny";
-};
+}
 
 /**
  * function get hour and Date
@@ -99,14 +100,49 @@ function getWeatherWeek(city) {
     .then(response => response.json())
     .then(data => {
       console.log(data);
+      let arrDate = [];
 
       arrayForecast.forEach(i => {
-        let date = data.list[i].dt_txt.slice(5, 10).split('-').reverse().join('/');
-        console.log('------------------------------------');
-        console.log("date:" + date);
-        console.log("temp-max:" + fahrenheit(data.list[i].main.temp_max));
-        console.log("temp-min:" + fahrenheit(data.list[i].main.temp_min));
-        console.log('------------------------------------');
+        let date = data.list[i].dt_txt
+          .slice(5, 10)
+          .split("-")
+          .reverse()
+          .join("/");
+
+        arrDate.push(date);
+
+        document.querySelector("#outPutForecast").innerHTML = `
+         <div class="box">
+          <h3>Mim</h3>
+          <br>
+          <h3>Max</h3>
+        </div>
+        <div class="box" id="day-1">
+          <h4>${arrDate[0]}</h4>
+          <p>${fahrenheit(data.list[1].main.temp_max)}</p>
+          <p>${fahrenheit(data.list[1].main.temp_min)}</p>
+        </div>
+        <div class="box" id="day-2">
+          <h4>${arrDate[1]}</h4>
+          <p>${fahrenheit(data.list[2].main.temp_max)}</p>
+          <p>${fahrenheit(data.list[2].main.temp_min)}</p>
+        </div>
+        <div class="box" id="day-3">
+          <h4>${arrDate[2]}</h4>
+          <p>${fahrenheit(data.list[10].main.temp_max)}</p>
+          <p>${fahrenheit(data.list[10].main.temp_min)}</p>
+        </div>
+        <div class="box" id="day-4">
+          <h4>${arrDate[3]}</h4>
+          <p>${fahrenheit(data.list[18].main.temp_max)}</p>
+          <p>${fahrenheit(data.list[18].main.temp_min)}</p>
+        </div>
+        <div class="box-end" id="day-5">
+          <h4>${arrDate[4]}</h4>
+          <p>${fahrenheit(data.list[26].main.temp_max)}</p>
+          <p>${fahrenheit(data.list[26].main.temp_min)}</p>
+        </div>
+        `;
       });
     });
 }
