@@ -3,7 +3,7 @@
   margin-bottom: 50px;
   input[type="text"] {
     border: none;
-    width: 20%;
+    width: 180px;
     padding: 10px;
     outline: 0;
     background-color: $bck-opacity;
@@ -65,7 +65,23 @@
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-auto-rows: minmax(100px, auto);
-    // grid-gap: 10px;
+    h3 {
+      font-weight: 300;
+      padding-top: 60px;
+      + h3 {
+        padding-top: 22px;
+      }
+    }
+    h4 {
+      font-weight: 300;
+      padding-top: 25px;
+    }
+    p {
+      padding-top: 20px;
+      + p {
+        padding-top: 25px;
+      }
+    }
     .box {
       border-right: 1px solid rgb(195, 228, 228);
     }
