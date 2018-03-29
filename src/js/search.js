@@ -1,9 +1,11 @@
 import { celsius, fahrenheit } from "./convert-temp";
 import { getMinute, getDateHour } from "./convert-hour-date";
 import { selectIcon } from "./select-icon";
+import { titleCase } from "./title-case";
+import { clearInput } from "./clear-input";
+import { appKey } from "./token";
 
 document.querySelector("#searchForm").addEventListener("submit", getWeatherDay);
-const appKey = "f33ab95e615dc5a7c3c725a9b8e4e80f";
 
 function getWeatherDay(e) {
   const city = document.querySelector("#cityInput").value;
@@ -40,19 +42,6 @@ function getWeatherDay(e) {
     .catch(err => console.log(err));
   clearInput();
   e.preventDefault();
-}
-
-function titleCase(str) {
-  return str
-    .split(" ")
-    .map(function(word) {
-      return word[0].toUpperCase() + word.substring(1);
-    })
-    .join(" ");
-}
-
-function clearInput() {
-  document.getElementById("searchForm").reset();
 }
 
 /**
