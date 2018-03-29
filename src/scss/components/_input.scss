@@ -25,6 +25,7 @@
   border-radius: 5px;
   background-color: $bck-opacity;
   color: $color-white;
+  display: none;
   .div-info {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

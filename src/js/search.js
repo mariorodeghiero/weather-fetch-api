@@ -4,6 +4,7 @@ import { selectIcon } from "./select-icon";
 import { titleCase } from "./title-case";
 import { clearInput } from "./clear-input";
 import { appKey } from "./token";
+import { showDiv } from "./show-div";
 
 document.querySelector("#searchForm").addEventListener("submit", getWeatherDay);
 
@@ -99,4 +100,5 @@ function getWeatherWeek(city) {
         `;
       });
     });
+  showDiv();
 }
