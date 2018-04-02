@@ -1,2 +1,2 @@
-import "./js/search";
+import "./js/index";
 import "./main.scss";
