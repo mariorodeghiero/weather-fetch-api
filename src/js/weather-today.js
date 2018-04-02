@@ -3,8 +3,8 @@ import { getMinute, getDateHour } from "./convert-hour-date";
 import { selectIcon } from "./select-icon";
 import { titleCase } from "./title-case";
 
-function getWeatherToday(data) {
-  document.querySelector("#icon-div").innerHTML = `
+function getWeatherToday(data, icon, details) {
+  icon.innerHTML = `
         <i class="icon ${selectIcon(data.weather[0].icon)}"/>
         <h2 class="active" href="#" id="fahrenheit">${fahrenheit(
           data.main.temp
@@ -18,7 +18,7 @@ function getWeatherToday(data) {
         <br>
       `;
 
-  document.querySelector("#details-div").innerHTML = `
+  details.innerHTML = `
           <h2 >${data.name}, ${data.sys.country}</h2>
           <br>
           <section>

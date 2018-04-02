@@ -4,6 +4,8 @@ import { clearInput } from "./clear-input";
 import { appKey } from "./token";
 import { showDiv } from "./show-div";
 
+let icon = document.querySelector("#icon-div");
+let details = document.querySelector("#details-div");
 document.querySelector("#searchForm").addEventListener("submit", getWeatherDay);
 
 function getWeatherDay(e) {
@@ -13,7 +15,7 @@ function getWeatherDay(e) {
   fetch(url)
     .then(response => response.json())
     .then(data => {
-      getWeatherToday(data);
+      getWeatherToday(data, icon, details);
       getWeatherWeek(data.name);
       console.log(data);
     })
