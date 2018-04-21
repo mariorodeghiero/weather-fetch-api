@@ -6,15 +6,16 @@ import { titleCase } from "./title-case";
 function getWeatherToday(data, icon, details) {
   icon.innerHTML = `
         <i class="icon ${selectIcon(data.weather[0].icon)}"/>
-        <h2 class="active" href="#" id="fahrenheit">${fahrenheit(
-          data.main.temp
-        )}°F | ${celsius(data.main.temp)}°C</h2>
+        <h2 class="active" href="#" id="fahrenheit">
+          ${fahrenheit(data.main.temp)}°F | 
+          ${celsius(data.main.temp)}°C
+        </h2>
         <br>
-            <h3>
-                Wind: ${data.wind.speed} mph
-                <br>
-                Humidity: ${data.main.humidity}%
-            </h3>
+        <h3>
+            Wind: ${data.wind.speed} mph
+            <br>
+            Humidity: ${data.main.humidity}%
+        </h3>
         <br>
       `;
 

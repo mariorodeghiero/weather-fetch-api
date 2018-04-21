@@ -1,9 +1,9 @@
-import { fahrenheit, celsius } from "./convert-temp";
-
-const arrayForecast = [2, 10, 18, 26, 34];
-let arrDate = [];
+import { fahrenheit } from "./convert-temp";
 
 function foreCast(data) {
+  let arrDate = [];
+  const arrayForecast = [2, 10, 18, 26, 34];
+
   arrayForecast.forEach(i => {
     let date = data.list[i].dt_txt
       .slice(5, 10)
