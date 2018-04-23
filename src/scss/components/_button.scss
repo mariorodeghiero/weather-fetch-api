@@ -7,7 +7,7 @@
   float: right;
   border-radius: 50px;
   &:after {
-    content: "°F";
+    content: "°C";
     color: $color-white;
     position: absolute;
     right: 20px;
@@ -17,7 +17,7 @@
     text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.15);
   }
   &:before {
-    content: "°C";
+    content: "°F  ";
     color: $color-white;
     position: absolute;
     left: 20px;
