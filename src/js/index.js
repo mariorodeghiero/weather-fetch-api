@@ -1,6 +1,6 @@
 import { getWeatherToday } from "./weather-today";
-import { foreCast } from "./weather-week";
-import { foreCastCelsius } from "./forecast-celsius";
+import { forecast } from "./weather-week";
+import { forecastCelsius } from "./forecast-celsius";
 import { clearInput } from "./clear-input";
 import { appKey } from "./token";
 import { showDiv } from "./show-div";
@@ -37,7 +37,7 @@ function getWeatherWeek(city) {
   fetch(urlForeCast)
     .then(response => response.json())
     .then(
-      data => (button.checked == false ? foreCast(data) : forecastCelsius(data))
+      data => (button.checked == false ? forecast(data) : forecastCelsius(data))
     );
   setInterval(function() {
     showDiv();

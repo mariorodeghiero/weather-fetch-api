@@ -1,6 +1,6 @@
 import { fahrenheit } from "./convert-temp";
 
-function foreCast(data) {
+function forecast(data) {
   let arrDate = [];
   const arrayForecast = [2, 10, 18, 26, 34];
 
@@ -47,4 +47,4 @@ function foreCast(data) {
         `;
 }
 
-export { foreCast };
+export { forecast };
