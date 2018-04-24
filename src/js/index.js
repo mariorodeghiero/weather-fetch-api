@@ -1,17 +1,17 @@
 import { getWeatherToday } from "./weather-today";
-import { forecast } from "./weather-week";
+import { forecast } from "./faracast-fahrenheit";
 import { forecastCelsius } from "./forecast-celsius";
 import { clearInput } from "./clear-input";
 import { appKey } from "./token";
-import { showDiv } from "./show-div";
+import { showDiv, hideDiv } from "./show-hide-div";
 
 let icon = document.querySelector("#icon-div");
 let details = document.querySelector("#details-div");
+let setTemp = document.getElementById("set-temp");
 document.querySelector("#searchForm").addEventListener("submit", getWeatherDay);
-let button = document.getElementById("set-temp");
-// button.addEventListener("click", showDiv);
 
 function getWeatherDay(e) {
+  hideDiv();
   const city = document.querySelector("#cityInput").value;
   const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${appKey}`;
 
@@ -37,7 +37,8 @@ function getWeatherWeek(city) {
   fetch(urlForeCast)
     .then(response => response.json())
     .then(
-      data => (button.checked == false ? forecast(data) : forecastCelsius(data))
+      data =>
+        setTemp.checked == false ? forecast(data) : forecastCelsius(data)
     );
   setInterval(function() {
     showDiv();
